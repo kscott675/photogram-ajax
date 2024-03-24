@@ -1,6 +1,1 @@
-var toEdit = $("#<%= dom_id(@comment) %>")
-var gotComment = toEdit.text()
-console.log("heyo")
-console.log(gotComment)
-
-//$("#<%= dom_id(@comment.photo) %>_<%= dom_id(@comment) %>_form").replaceWith("<%= j(render @comment) %>");
+$("#<%= dom_id(@comment) %>").replaceWith("<%= j(render "comments/form", comment: @comment) %>");
