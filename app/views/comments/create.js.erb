@@ -1,8 +1,4 @@
-//escape javascript
-
 var added_comment = $("<%= j(render @comment) %>");
-
-// adds it, but hides it right after
 added_comment.hide();
 
 $("#<%= dom_id(@comment.photo) %>_new_comment_form").before(added_comment);
