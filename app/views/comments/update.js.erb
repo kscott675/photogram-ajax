@@ -1,0 +1,4 @@
+var editForm = $("#<%= dom_id(@comment.photo) %>_<%= dom_id(@comment) %>_form");
+var newComment = ("<%= j(render @comment) %>");
+
+editForm.replaceWith(newComment)
