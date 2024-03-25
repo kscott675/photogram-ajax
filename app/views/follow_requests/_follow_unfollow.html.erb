@@ -2,11 +2,11 @@
   <% follow_request = current_user.sent_follow_requests.find_by(recipient: recipient) %>
 
   <% if follow_request %>
-    <% if follow_request.pending? %>
+    <% if !policy(current_user).show? %>
       <%= link_to follow_request, class: "#{dom_id(follow_request)} btn btn-outline-secondary", remote: true, method: :delete do %>
         Un-request
       <% end %>
-    <% elsif follow_request.accepted? %>
+    <% elsif follow_request.accepted? || policy(current_user).show? %>
       <%= link_to follow_request, class: "#{dom_id(follow_request)} btn btn-outline-secondary", remote: true, method: :delete do %>
         Un-follow
       <% end %>
